@@ -46,8 +46,9 @@ alias la="ls -lathr"
 # Python
 # line count for Python.
 alias pyloc='find . -name "*.py" ! -path "./venv/*" | xargs wc -l'
-alias venv_create="python3 -m venv venv"
-alias venv_start="source venv/bin/activate"
+alias cv="python3 -m venv venv"
+alias sv="source venv/bin/activate"
+alias dv="deactivate"
 
 # git
 alias ga="git add"
@@ -63,6 +64,7 @@ alias gco="git checkout"
 alias gstall="git stash --all"
 alias gstp="git stash pop"
 alias lg="lazygit"
+alias nb="jupyter notebook"
 
 # finds all files recursively and sorts by last modification, ignore hidden files
 alias last="find . -type f -not -path "*/\.*" -exec ls -lrt {} +"
