@@ -22,7 +22,7 @@ export BROWSER="firefox"
 export PROJECTS="$HOME/Projects"
 export RESEARCH="$HOME/Projects/research"
 export GITUSER="vprusso"
-export GHREPOS="$REPOS/github.com/$GITUSER"
+export GHREPOS="$PROJECTS/github.com/$GITUSER"
 export DOTFILES="$GHREPOS/dotfiles"
 export SCRIPTS="$DOTFILES/scripts"
 
@@ -35,8 +35,18 @@ export HISTCONTROL=ignorespace
 
 # ~~~~~~~~~~~~~~~ Aliases ~~~~~~~~~~~~~~~~~~~~~~~~
 
+# vim
 alias v=nvim
 alias vi=nvim
+
+# cd
+alias ..="cd .."
+alias scripts="cd $SCRIPTS"
+alias research='cd $RESEARCH'
+alias dot='cd $GHREPOS/dotfiles'
+alias projects='cd $PROJECTS'
+alias c="clear"
+alias icloud="cd \$ICLOUD"
 
 # ls
 alias ls="ls --color=auto"
@@ -46,9 +56,13 @@ alias la="ls -lathr"
 # Python
 # line count for Python.
 alias pyloc='find . -name "*.py" ! -path "./venv/*" | xargs wc -l'
+# venv
 alias cv="python3 -m venv venv"
 alias sv="source venv/bin/activate"
 alias dv="deactivate"
+
+# Jupyter notebooks
+alias nb="jupyter notebook"
 
 # git
 alias ga="git add"
@@ -64,21 +78,22 @@ alias gco="git checkout"
 alias gstall="git stash --all"
 alias gstp="git stash pop"
 alias lg="lazygit"
-alias nb="jupyter notebook"
 
-# finds all files recursively and sorts by last modification, ignore hidden files
+# Finds all files recursively and sorts by last modification, ignore hidden files.
 alias last="find . -type f -not -path "*/\.*" -exec ls -lrt {} +"
 
-# ricing
-alias et="v ~/.config/awesome/themes/powerarrow/theme-personal.lua"
-alias ett="v ~/.config/awesome/themes/powerarrow-dark/theme-personal.lua"
-alias er="v ~/.config/awesome/rc.lua"
+# dotfiles.
 alias ez="v ~/.zshrc"
 alias eb="v ~/.bashrc"
 alias ev="cd ~/.config/nvim/ && v init.lua"
 alias sz="source ~/.zshrc"
 alias sbr="source ~/.bashrc"
-alias s="startx"
 
 alias t="tmux"
 alias e="exit"
+
+# tox
+alias toxl="tox -e lint ${LINT_ARGS}"
+alias toxt="tox -e typing ${TYPING_ARGS}"
+
+
