@@ -97,3 +97,6 @@ alias toxl="tox -e lint ${LINT_ARGS}"
 alias toxt="tox -e typing ${TYPING_ARGS}"
 
 
+function cd {
+    builtin cd "$@" && ls -F
+}
