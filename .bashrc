@@ -47,6 +47,11 @@ alias dot='cd $GHREPOS/dotfiles'
 alias projects='cd $PROJECTS'
 alias c="clear"
 alias icloud="cd \$ICLOUD"
+# cd && ls
+function cd {
+    builtin cd "$@" && ls -F
+}
+
 
 # ls
 alias ls="ls --color=auto"
@@ -56,6 +61,7 @@ alias la="ls -lathr"
 # Python
 # line count for Python.
 alias pyloc='find . -name "*.py" ! -path "./venv/*" | xargs wc -l'
+alias pipu="pip install --upgrade pip"
 # venv
 alias cv="python3 -m venv venv"
 alias sv="source venv/bin/activate"
@@ -63,6 +69,14 @@ alias dv="deactivate"
 
 # Jupyter notebooks
 alias nb="jupyter notebook"
+# Notebook kernels
+alias lk="jupyter kernelspec list"
+function install_jupyter_kernel() {
+    python -m ipykernel install --user --name="$1" --display-name="Python ($1)"
+}
+function uninstall_jupyter_kernel() {
+    jupyter kernelspec uninstall "$1" -f
+}
 
 # git
 alias ga="git add"
@@ -95,8 +109,6 @@ alias e="exit"
 # tox
 alias toxl="tox -e lint ${LINT_ARGS}"
 alias toxt="tox -e typing ${TYPING_ARGS}"
+alias toxe="tox run -e examples"
 
 
-function cd {
-    builtin cd "$@" && ls -F
-}

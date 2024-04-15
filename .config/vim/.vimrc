@@ -42,10 +42,10 @@ set t_vb=
 
 let mapleader=","
 
-set softtabstop=2
+set softtabstop=4
 
 " mostly used with >> and <<
-set shiftwidth=2
+set shiftwidth=4
 
 set smartindent
 
@@ -109,9 +109,12 @@ if has("eval") " vim-tiny detection
 endif
 set noshowmatch
 
+set textwidth=120
+
 " wrap around when searching
 set wrapscan
 set nowrap
+
 
 " Just the formatoptions defaults, these are changed per filetype by
 " plugins. Most of the utility of all of this has been superceded by the use of
@@ -217,3 +220,4 @@ au FileType c set sw=8
 au FileType markdown,pandoc noremap j gj
 au FileType markdown,pandoc noremap k gk
 au FileType sh set noet
+
